@@ -1,0 +1,9 @@
+Feature: Calculator
+  As a user of the calculator
+  I want to perform basic arithmetic operations
+  So that I can get correct results
+
+  Scenario: Adding two numbers
+    Given I have a calculator
+    When I add 5 and 3
+    Then the result should be 8
