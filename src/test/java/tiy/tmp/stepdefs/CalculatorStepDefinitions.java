@@ -13,6 +13,7 @@ public class CalculatorStepDefinitions {
     private int result;
 
     @Autowired  // IDEA не понимает, что класс stepdef будет создан как бин кукумбером!!!
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private CalculatorService calculatorService;
 
     public CalculatorStepDefinitions() {
