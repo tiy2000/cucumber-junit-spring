@@ -1,4 +1,4 @@
-package tiy.tmp.tmpcucumber1;
+package tiy.tmp.stepdefs;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

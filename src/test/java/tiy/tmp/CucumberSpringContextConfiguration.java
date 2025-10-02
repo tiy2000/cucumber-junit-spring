@@ -1,10 +1,9 @@
-package tiy.tmp.tmpcucumber1;
+package tiy.tmp;
 
 import io.cucumber.java.Before;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-import tiy.tmp.TmpCucumber1Application;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT) // Работает без, но не поднимается WEB
 @ContextConfiguration(classes = TmpCucumber1Application.class)              // Работает без, но не создается бин сервиса
