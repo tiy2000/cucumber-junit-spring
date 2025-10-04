@@ -7,7 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "classpath:features",
-        glue = "tiy.tmp"
+        glue = "tiy.tmp",
+//        tags = "@Calc and not @Api"
+        tags = "@Plus and not @Api"
 )
 //@CucumberOptions(
 //        features = "classpath:features",
