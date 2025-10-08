@@ -105,43 +105,39 @@ class CfgChecker {
 
     public void checkCfgProps() {
         StringBuilder errorMessages = new StringBuilder();
-        if (!isEnvironmentSpecified()) {
-            errorMessages.append("Environment");
+        errorMessages.append(checkEnvironmentSpecified());
+        String platformCheckResult = checkPlatformSpecified();
+        if (!platformCheckResult.isEmpty() && !errorMessages.isEmpty()) {
+            errorMessages.append(" and ");
         }
-        if (!isPlatformSpecified()) {
-            if (!errorMessages.isEmpty()) {
-                errorMessages.append(" and ");
-            }
-            errorMessages.append("Platform");
-        }
+        errorMessages.append(platformCheckResult);
         if (!errorMessages.isEmpty()) {
-            errorMessages.append(" must be specified");
-            throw new RuntimeException(errorMessages.toString());
+            throw new IllegalStateException(errorMessages.toString());
         }
     }
 
-    private boolean isEnvironmentSpecified() {
+    private String checkEnvironmentSpecified() {
         String environmentProperty = environment.getProperty("cfg.environment");
         if (environmentProperty == null) {
-            return false;
+            return "property 'cfg.environment' is not specified";
         }
         return switch (environmentProperty) {
-            case "local", "et", "qt" -> true;
-            default -> false;
+            case "local", "et", "qt" -> "";
+            default -> "property 'cfg.environment' has invalid value: '" + environmentProperty + "'";
         };
     }
 
-    private boolean isPlatformSpecified() {
+    private String checkPlatformSpecified() {
         String platformProperty = environment.getProperty("cfg.platform");
         if (platformProperty == null) {
-            return false;
+            return "property 'cfg.platform' is not specified";
         }
         switch (platformProperty) {
             case "android", "ios" -> {
-                return true;
+                return "";
             }
             default -> {
-                return false;
+                return "property 'cfg.platform' has invalid value: '" + platformProperty + "'";
             }
         }
     }
