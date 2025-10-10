@@ -84,6 +84,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- clone https://github.com/tiy2000/cucumber-junit-spring-common.git -->
+        <dependency>
+            <groupId>tiy.common</groupId>
+            <artifactId>cucumber-junit-spring-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

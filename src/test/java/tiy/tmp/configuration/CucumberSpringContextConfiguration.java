@@ -7,18 +7,22 @@ import io.cucumber.spring.CucumberContextConfiguration;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
-import tiy.tmp.TmpCucumber1Application;
+import org.springframework.test.context.TestPropertySource;
+import tiy.com.CommonSpringConfiguration;
+import tiy.tmp.MainConfiguration;
 
 // Run with: mvn clean test -Dcfg.platform=android -Dcfg.environment=qt
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT) // Работает без, но не поднимается WEB
-@ContextConfiguration(classes = TmpCucumber1Application.class)              // Работает без, но не создается бин сервиса
+@ContextConfiguration(classes = {
+        CommonSpringConfiguration.class,
+        MainConfiguration.class
+})
 @CucumberContextConfiguration
+@TestPropertySource("classpath:application.properties")
 @RequiredArgsConstructor
 public class CucumberSpringContextConfiguration {
 
@@ -35,8 +39,6 @@ public class CucumberSpringContextConfiguration {
         System.out.println("\nBEFORE: " + scenario.getName());
         System.out.println("environment=" + environment.getProperty("environment"));
         System.out.println("platform=" + environment.getProperty("platform"));
-        // This method will be executed before each scenario.
-        // It ensures the Spring context is loaded before tests run.
     }
 
     @After
@@ -49,7 +51,6 @@ public class CucumberSpringContextConfiguration {
 
 @Configuration
 @ConditionalOnProperty(name = "cfg.platform", havingValue = "ios")
-//@Profile("ios")
 @PropertySource("classpath:platform-ios.properties")
 class PlatformIOSConfiguration {
     public PlatformIOSConfiguration() {
@@ -59,7 +60,6 @@ class PlatformIOSConfiguration {
 
 @Configuration
 @ConditionalOnProperty(name = "cfg.platform", havingValue = "android")
-//@Profile("android")
 @PropertySource("classpath:platform-android.properties")
 class PlatformAndroidConfiguration {
     public PlatformAndroidConfiguration() {
@@ -68,7 +68,6 @@ class PlatformAndroidConfiguration {
 }
 
 @Configuration
-//@Profile("local")
 @ConditionalOnProperty(name = "cfg.environment", havingValue = "local")
 @PropertySource("classpath:environment-local.properties")
 class EnvironmentLocalConfiguration {
@@ -78,7 +77,6 @@ class EnvironmentLocalConfiguration {
 }
 
 @Configuration
-//@Profile("et")
 @ConditionalOnProperty(name = "cfg.environment", havingValue = "et")
 @PropertySource("classpath:environment-et.properties")
 class EnvironmentEtConfiguration {
@@ -88,7 +86,6 @@ class EnvironmentEtConfiguration {
 }
 
 @Configuration
-//@Profile("qt")
 @ConditionalOnProperty(name = "cfg.environment", havingValue = "qt")
 @PropertySource("classpath:environment-qt.properties")
 class EnvironmentQtConfiguration {

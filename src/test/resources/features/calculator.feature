@@ -1,5 +1,5 @@
 @Calc @Smoke
-Feature: Calculator
+Feature: Calculator service test
   As a user of the calculator
   I want to perform basic arithmetic operations
   So that I can get correct results
