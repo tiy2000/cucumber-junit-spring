@@ -1,8 +1,5 @@
 package tiy.tmp.configuration;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
 import io.cucumber.spring.CucumberContextConfiguration;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +21,7 @@ import tiy.tmp.MainConfiguration;
 @CucumberContextConfiguration
 @TestPropertySource("classpath:application.properties")
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class CucumberSpringContextConfiguration {
 
     private final Environment environment;
@@ -32,22 +30,7 @@ public class CucumberSpringContextConfiguration {
     public void checkProfiles() {
         new CfgChecker(environment).checkCfgProps();
     }
-
-
-    @Before
-    public void setup(Scenario scenario) {
-        System.out.println("\nBEFORE: " + scenario.getName());
-        System.out.println("environment=" + environment.getProperty("environment"));
-        System.out.println("platform=" + environment.getProperty("platform"));
-    }
-
-    @After
-    public void done(Scenario scenario) {
-        System.out.println("AFTER: " + scenario.getName() + ", status: " + scenario.getStatus());
-        System.out.println();
-    }
 }
-
 
 @Configuration
 @ConditionalOnProperty(name = "cfg.platform", havingValue = "ios")
