@@ -1,0 +1,64 @@
+sap-domain:
+  clusters:
+    - id: qt
+      url: http://sdfjshdfg
+      accounts:
+        # Аккаунт для ....
+        - id: acc1
+          password: ${ACCOUNT_PASSWORD}
+          roles:
+            - name: role1
+            - name: role2
+          companies:
+            - id: Company1
+              name: Company1
+              description: sdfsdf
+              type: demo
+            - id: Company2
+              name: Company2
+              description: sdfsdfasdasd
+              type: demo
+          users:
+            - id: user1
+              name: user1
+              first-name: John
+              last-name: Smith
+              email: sdf@sdasd
+              password: ${USER1_PASSWORD}
+            - id: user2
+              name: user2
+              first-name: Sarah
+              last-name: Johnson
+              email: sdf222@sdasd
+              password: ${USER2_PASSWORD}
+        - id: acc2
+    - id: et
+      url: http://sdjfhskdjf
+
+security:
+  vault:
+    url: dfsdl
+    password: sdfskdfjsl
+
+appium:
+  running-profiles:
+    - id: local
+      appium-server-url: http://sdjfghksdjhf
+    - id: saucelab
+      appium-server-url: http://fghfg,hmflhdf;hlk;g
+    - id: some
+      appium-server-url: http://dfgkfdjfglkdjglks
+
+app-platforms:
+  - id: ios
+    platform-version: sdfsd
+    app-name: sdfjsd
+    device-name: sdfsfsdf
+    locale: EN
+  - id: android
+    platform-version: sdfgdfgd
+    app-name: sddfgdfg
+    device-name: sdfsfdgdfgdfsdf
+    locale: EN
+
+
