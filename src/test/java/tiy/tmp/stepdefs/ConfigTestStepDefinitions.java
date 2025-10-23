@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
-import tiy.tmp.config.AppPlatformsConfig;
+import tiy.tmp.config.AppUnderTestConfig;
 import tiy.tmp.config.AppiumConfig;
 import tiy.tmp.config.dto.AppPlatform;
 import tiy.tmp.config.dto.AppiumRunningProfile;
@@ -15,7 +15,7 @@ public class ConfigTestStepDefinitions {
 
     @Autowired
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-    private AppPlatformsConfig appPlatformsConfig;
+    private AppUnderTestConfig appUnderTestConfig;
 
     @Autowired
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
@@ -43,13 +43,13 @@ public class ConfigTestStepDefinitions {
 
     @When("I get platform {string}")
     public void iGetPlatform(String platformId) {
-        appPlatform = appPlatformsConfig.getAppPlatform(platformId);
+        appPlatform = appUnderTestConfig.getAppPlatform(platformId);
         System.out.println("Platform: " + appPlatform);
     }
 
     @When("I get current platform")
     public void iGetCurrentPlatform() {
-        appPlatform = appPlatformsConfig.getCurrentAppPlatform();
+        appPlatform = appUnderTestConfig.getCurrentAppPlatform();
         System.out.println("Current platform: " + appPlatform);
     }
 
