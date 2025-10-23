@@ -1,4 +1,4 @@
-sap-domain:
+sap:
   clusters:
     - id: qt
       url: http://sdfjshdfg
@@ -43,22 +43,23 @@ security:
 appium:
   running-profiles:
     - id: local
-      appium-server-url: http://sdjfghksdjhf
+      appium-server-url: http://localhost
     - id: saucelab
-      appium-server-url: http://fghfg,hmflhdf;hlk;g
+      appium-server-url: http://saucelab.com
     - id: some
-      appium-server-url: http://dfgkfdjfglkdjglks
+      appium-server-url: http://some.com
 
-app-platforms:
-  - id: ios
-    platform-version: sdfsd
-    app-name: sdfjsd
-    device-name: sdfsfsdf
-    locale: EN
-  - id: android
-    platform-version: sdfgdfgd
-    app-name: sddfgdfg
-    device-name: sdfsfdgdfgdfsdf
-    locale: EN
+app:
+  platforms:
+    - id: ios
+      platform-version: 12
+      app-name: ios app name
+      device-name: ios device name
+      locale: EN
+    - id: android
+      platform-version: 13
+      app-name: android app name
+      device-name: android device name
+      locale: EN
 
 

@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "classpath:features",
         glue = {"tiy.tmp.stepdefs", "tiy.tmp.configuration"},
-        tags = "(@Calc or @Greeting) and not @Api"
+        tags = "(@Calc or @Greeting or @Cfg) and not @Api"
 )
 public class RunCucumberTest {
 }
