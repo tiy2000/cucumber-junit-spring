@@ -10,12 +10,12 @@ public class BaseStepDefinitions {
 
     @Before
     public void setup(Scenario scenario) {
-        System.out.println("Before Scenario: " + scenario.getName());
+//        System.out.println("Before Scenario: " + scenario.getName());
     }
 
     @After
     public void done(Scenario scenario) {
-        System.out.println("After Scenario: " + scenario.getName());
+//        System.out.println("After Scenario: " + scenario.getName());
     }
 
 }

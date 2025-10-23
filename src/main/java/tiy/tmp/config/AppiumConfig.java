@@ -2,6 +2,7 @@ package tiy.tmp.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tiy.tmp.config.dto.AppiumRunningProfile;
 import tiy.tmp.config.utils.ConverterUtils;
@@ -30,7 +31,11 @@ public class AppiumConfig {
     }
 
     public AppiumRunningProfile getCurrentRunningProfile() {
-        System.out.println(currentRunningProfile);
         return this.runningProfiles.get(currentRunningProfile);
+    }
+
+    @Bean
+    AppiumRunningProfile getAppiumRunningProfile() {
+        return getCurrentRunningProfile();
     }
 }

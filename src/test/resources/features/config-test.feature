@@ -11,6 +11,11 @@ Feature: Configuration test
     When I get current platform
     Then I should receive app name "ios app name"
 
+  Scenario: Test application platform configuration via bean injection
+    Given Application was started
+    When I get current platform via bean injection
+    Then I should receive app name "ios app name"
+
   Scenario: Test explicitly specified appium configuration
     Given Application was started
     When I get appium running profile "saucelab"
@@ -19,4 +24,9 @@ Feature: Configuration test
   Scenario: Test current appium configuration
     Given Application was started
     When I use current appium running profile
+    Then I should receive url "http://localhost"
+
+  Scenario: Test current appium configuration via bean injection
+    Given Application was started
+    When I use current appium running profile via bean injection
     Then I should receive url "http://localhost"

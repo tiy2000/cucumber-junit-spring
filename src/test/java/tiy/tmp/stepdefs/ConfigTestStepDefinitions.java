@@ -21,6 +21,16 @@ public class ConfigTestStepDefinitions {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private AppiumConfig appiumConfig;
 
+
+    @Autowired
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    private AppPlatform injectedAppPlatform;
+
+    @Autowired
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    private AppiumRunningProfile injectedAppiumRunningProfile;
+
+
     private AppPlatform appPlatform;
     private AppiumRunningProfile appiumRunningProfile;
 
@@ -43,6 +53,12 @@ public class ConfigTestStepDefinitions {
         System.out.println("Current platform: " + appPlatform);
     }
 
+    @When("I get current platform via bean injection")
+    public void iGetCurrentPlatformViaBeanInjection() {
+        appPlatform = injectedAppPlatform;
+        System.out.println("Current platform (injected): " + appPlatform);
+    }
+
     @Then("I should receive app name {string}")
     public void iShouldReceiveAppName(String expectedAppName) {
         assertEquals(expectedAppName, appPlatform.appName());
@@ -59,6 +75,12 @@ public class ConfigTestStepDefinitions {
     public void iUseCurrentAppiumRunningProfile() {
         appiumRunningProfile = appiumConfig.getCurrentRunningProfile();
         System.out.println("Current Appium running profile: " + appiumRunningProfile);
+    }
+
+    @When("I use current appium running profile via bean injection")
+    public void iUseCurrentAppiumRunningProfileViaBeanInjection() {
+        appiumRunningProfile = injectedAppiumRunningProfile;
+        System.out.println("Current Appium running profile (injected): " + appiumRunningProfile);
     }
 
     @Then("I should receive url {string}")
