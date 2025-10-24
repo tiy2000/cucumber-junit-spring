@@ -8,5 +8,6 @@ public interface SecretsProvider {
 
     // Approach 2
     String getSecret(String secretId);
+    <T> T getSecret(String secretId, Class<T> dtoClass);
 
 }

@@ -18,6 +18,11 @@ public abstract class BaseSecretProvider implements SecretsProvider {
         return secrets.get(secretId);
     }
 
+    @Override
+    public <T> T getSecret(String secretId, Class<T> dtoClass) {
+        return null;
+    }
+
     public void readSecrets() {
         System.out.println("Secrets provider " + config.getType() + " reads secrets");
     }
