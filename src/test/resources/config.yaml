@@ -36,9 +36,10 @@ sap:
       url: http://sdjfhskdjf
 
 security:
-  vault:
-    url: dfsdl
-    password: sdfskdfjsl
+  providers:
+    - id: local
+    - id: vault
+      url: http://vault.hhh
 
 appium:
   running-profiles:
