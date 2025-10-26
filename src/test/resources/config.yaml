@@ -63,4 +63,19 @@ app:
       device-name: android device name
       locale: EN
 
+app2:
+  platforms:
+    ios:
+#      id: ios
+      platform-version: 12
+      app-name: ios app name
+      device-name: ios device name
+      locale: EN
+    android:
+#      id: android
+      platform-version: 13
+      app-name: android app name
+      device-name: android device name
+      locale: EN
+
 
