@@ -1,21 +1,21 @@
-package tiy.tmp.security.provider.impl;
+package tiy.tmp.security.provider.types;
 
 import tiy.tmp.security.config.SecretProviderConfig;
 import tiy.tmp.security.provider.BaseSecretProvider;
 
-public class VaultSecretsProvider extends BaseSecretProvider {
+public class LocalFileSecretsProvider extends BaseSecretProvider {
 
-    public VaultSecretsProvider(SecretProviderConfig config) {
+    public LocalFileSecretsProvider(SecretProviderConfig config) {
         super(config);
     }
 
     @Override
     public String getSecret1() {
-        return "VAULT_SECRET_1";
+        return "LOCAL_SECRET_1";
     }
 
     @Override
     public String getSecret2() {
-        return "VAULT_SECRET_2";
+        return "LOCAL_SECRET_2";
     }
 }

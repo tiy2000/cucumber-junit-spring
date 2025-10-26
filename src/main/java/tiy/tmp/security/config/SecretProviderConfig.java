@@ -1,7 +1,7 @@
 package tiy.tmp.security.config;
 
 import lombok.Data;
-import tiy.tmp.security.provider.SecretsProviderType;
+import tiy.tmp.security.provider.types.SecretsProviderType;
 
 import static java.util.Objects.requireNonNullElseGet;
 

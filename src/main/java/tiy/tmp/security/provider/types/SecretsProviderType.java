@@ -1,4 +1,4 @@
-package tiy.tmp.security.provider;
+package tiy.tmp.security.provider.types;
 
 public enum SecretsProviderType {
 

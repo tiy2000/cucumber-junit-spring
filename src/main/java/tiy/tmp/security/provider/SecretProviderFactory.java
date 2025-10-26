@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tiy.tmp.security.config.SecretProviderConfig;
 import tiy.tmp.security.config.SecurityConfig;
-import tiy.tmp.security.provider.impl.LocalFileSecretsProvider;
-import tiy.tmp.security.provider.impl.VaultSecretsProvider;
+import tiy.tmp.security.provider.types.LocalFileSecretsProvider;
+import tiy.tmp.security.provider.types.VaultSecretsProvider;
 
 @Configuration
 @RequiredArgsConstructor
