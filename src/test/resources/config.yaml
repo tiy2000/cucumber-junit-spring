@@ -50,32 +50,32 @@ appium:
     - id: some
       appium-server-url: http://some.com
 
-app:
-  platforms:
-    - id: ios
-      platform-version: 12
-      app-name: ios app name
-      device-name: ios device name
-      locale: EN
-    - id: android
-      platform-version: 13
-      app-name: android app name
-      device-name: android device name
-      locale: EN
+app:          # field: AppUnderTestConfig
+  platforms:  # field: List<AppPlatform>
+    - id: ios                       # field: String
+      platform-version: 12          # field: String?
+      app-name: ios app name        # field: String
+      device-name: ios device name  # field: String
+      locale: EN                    # field: String?
+    - id: android                   # field: String
+      platform-version: 13          # field: String?
+      app-name: android app name    # field: String
+      device-name: android device name  # field: String
+      locale: EN                    # field: String?
 
-app2:
-  platforms:
-    ios:
-#      id: ios
-      platform-version: 12
-      app-name: ios app name
-      device-name: ios device name
-      locale: EN
-    android:
-#      id: android
-      platform-version: 13
-      app-name: android app name
-      device-name: android device name
-      locale: EN
+app2:         # field: App2UnderTestConfig
+  platforms:  # field: Map<AppPlatform>
+    ios:      # key in Map
+#      id: ios      # used as a key
+      platform-version: 12          # field: String?
+      app-name: ios app name        # field: String
+      device-name: ios device name  # field: String
+      locale: EN                    # field: String?
+    android:  # key in Map
+#      id: android  # used as a key
+      platform-version: 13          # field: String?
+      app-name: android app name    # field: String
+      device-name: android device name  # field: String
+      locale: EN                    # field: String?
 
 
