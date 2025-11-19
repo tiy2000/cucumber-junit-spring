@@ -78,4 +78,6 @@ app2:         # field: App2UnderTestConfig
       device-name: android device name  # field: String
       locale: EN                    # field: String?
 
+#debug:
+#  skip-login: true
 
