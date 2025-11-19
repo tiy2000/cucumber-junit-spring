@@ -9,6 +9,9 @@ public class LoginService {
     @Value("${debug.skip-login:#{false}}")
     private boolean skipLoginForDebug;
 
+    @Value("${debug.skip-logout:#{false}}")
+    private boolean skipLogoutForDebug;
+
     private boolean isLoggedIn = false;
 
     public void loginIfStillNotLoggedIn() {
@@ -19,7 +22,7 @@ public class LoginService {
     }
 
     public void logout() {
-        if (isLoggedIn) {
+        if (isLoggedIn && !skipLogoutForDebug) {
             System.out.println("***** Logging out...");
             isLoggedIn = false;
         }

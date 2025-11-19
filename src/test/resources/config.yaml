@@ -80,4 +80,4 @@ app2:         # field: App2UnderTestConfig
 
 #debug:
 #  skip-login: true
-
+#  skip-logout: true
